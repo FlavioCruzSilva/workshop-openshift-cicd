@@ -1,2 +1,2 @@
-FROM registry.connect.redhat.com/sumologic/busybox:1.36.0-ubi
+FROM busybox
 CMD echo "Olá TRE-SP"
