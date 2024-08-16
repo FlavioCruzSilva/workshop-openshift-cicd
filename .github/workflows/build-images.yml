@@ -1,0 +1,22 @@
+name: Build Container Image
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+  
+env:
+  dockerfilePath: 'Dockerfile'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build-and-publish-docker-image:
+    name: Build Busybox APP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build an image
+        run: |
+          docker build -t busybox-build:latest -f ./Dockerfile .
